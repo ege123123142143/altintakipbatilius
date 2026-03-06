@@ -1,56 +1,11 @@
 <!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Altın Karşılaştırma Paneli</title>
-    <style>
-        body { font-family: -apple-system, sans-serif; background-color: #131722; color: white; margin: 0; padding: 10px; }
-        .container { display: flex; flex-direction: column; gap: 15px; max-width: 1200px; margin: auto; }
-        .chart-card { background: #1e222d; border-radius: 10px; padding: 10px; border: 1px solid #363c4e; min-height: 400px; }
-        h2 { color: #ffb700; text-align: center; font-size: 1.2rem; }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <h2>Altın Arbitraj Takip Paneli</h2>
-
-    <div class="chart-card">
-        <div class="tradingview-widget-container" style="height:500px;">
-            <div id="tradingview_compare" style="height:100%;"></div>
-            <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-            <script type="text/javascript">
-            new TradingView.widget({
-                "autosize": true,
-                "symbol": "BIST:ALTIN.S1",
-                "interval": "D",
-                "timezone": "Europe/Istanbul",
-                "theme": "dark",
-                "style": "3",
-                "locale": "tr",
-                "toolbar_bg": "#f1f3f6",
-                "enable_publishing": false,
-                "hide_top_toolbar": false,
-                "allow_symbol_change": true,
-                "container_id": "tradingview_compare",
-                "studies": [
-                    {
-                        "id": "Overlay@tv-basicstudies",
-                        "inputs": {
-                            "symbol": "FX_IDC:TRYGOLD"
-                        }
-                    }
-                ]
-            });
-            </script>
-        </div>
+<html>
+<body style="background-color: #2c3e50; color: white; text-align: center; padding-top: 100px; font-family: sans-serif;">
+    <h1 style="color: #f1c40f;">SİTE ÇALIŞIYOR!</h1>
+    <p>Eğer bu yazıyı ve koyu mavi arka planı görüyorsan, GitHub siten aktif demektir.</p>
+    <div style="background: #e74c3c; padding: 20px; width: 200px; margin: auto; border-radius: 10px;">
+        Hata Yok!
     </div>
-
-    <p style="text-align:center; font-size:12px; color:#787b86;">
-        Mavi Çizgi: Gram Altın (Real) | Mumlar: ALTIN.S1 (Borsa)
-    </p>
-</div>
-
+    <p style="margin-top: 50px;">Şimdi orijinal kodu tekrar deneyeceğiz.</p>
 </body>
 </html>
