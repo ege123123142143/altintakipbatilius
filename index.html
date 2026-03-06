@@ -1,11 +1,80 @@
 <!DOCTYPE html>
-<html>
-<body style="background-color: #2c3e50; color: white; text-align: center; padding-top: 100px; font-family: sans-serif;">
-    <h1 style="color: #f1c40f;">SİTE ÇALIŞIYOR!</h1>
-    <p>Eğer bu yazıyı ve koyu mavi arka planı görüyorsan, GitHub siten aktif demektir.</p>
-    <div style="background: #e74c3c; padding: 20px; width: 200px; margin: auto; border-radius: 10px;">
-        Hata Yok!
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Altın Arbitraj & Karşılaştırma Paneli</title>
+    <style>
+        body { font-family: sans-serif; background: #131722; color: white; margin: 0; padding: 20px; }
+        .grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .card { background: #1e222d; border-radius: 8px; padding: 15px; border: 1px solid #363c4e; }
+        .header { text-align: center; margin-bottom: 20px; color: #ffb700; }
+        .difference-box { grid-column: span 2; text-align: center; font-size: 24px; font-weight: bold; background: #2a2e39; padding: 20px; border-radius: 8px; color: #00ff88; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Altın vs Hisse (ALTIN.S1) Karşılaştırma Paneli</h1>
+    <p>Real-Piyasa ve Borsa İstanbul Arasındaki Farkı Takip Edin</p>
+</div>
+
+<div class="grid-container">
+    <div class="card">
+        <h3>Real Piyasa (Gram Altın)</h3>
+        <div id="chart_gram"></div>
     </div>
-    <p style="margin-top: 50px;">Şimdi orijinal kodu tekrar deneyeceğiz.</p>
+
+    <div class="card">
+        <h3>Borsa İstanbul (ALTIN.S1)</h3>
+        <div id="chart_s1"></div>
+    </div>
+
+    <div class="difference-box">
+        <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
+            {
+              "symbols": [
+                ["GRAM ALTIN / TRY","FX_IDC:TRYGOLD|1D"],
+                ["DARPHANE SERTIFIKASI","BIST:ALTIN.S1|1D"]
+              ],
+              "chartOnly": false,
+              "width": "100%",
+              "height": 400,
+              "locale": "tr",
+              "colorTheme": "dark",
+              "autosize": true,
+              "showVolume": false,
+              "showMA": false,
+              "hideDateRanges": false,
+              "hideMarketStatus": false,
+              "hideSymbolLogo": false,
+              "scalePosition": "right",
+              "scaleMode": "Percentage",
+              "fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
+              "fontSize": "10",
+              "noTimeScale": false,
+              "valuesTracking": "1",
+              "changeMode": "price-and-percent",
+              "chartType": "line"
+            }
+            </script>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+<script type="text/javascript">
+  new TradingView.MediumWidget({
+    "symbols": [["FX_IDC:TRYGOLD|1D"]],
+    "container_id": "chart_gram",
+    "width": "100%", "height": 400, "gridLineColor": "#2a2e39", "fontColor": "#787b86", "underLineColor": "rgba(41, 98, 255, 0.3)", "isTransparent": false, "autosize": true, "showFloatingTooltip": true, "scalePosition": "no", "scaleMode": "Normal", "fontFamily": "Trebuchet MS, sans-serif", "noTimeScale": false, "chartType": "area", "lineColor": "#2962ff", "bottomColor": "rgba(41, 98, 255, 0)", "topColor": "rgba(41, 98, 255, 0.3)", "colorTheme": "dark"
+  });
+  new TradingView.MediumWidget({
+    "symbols": [["BIST:ALTIN.S1|1D"]],
+    "container_id": "chart_s1",
+    "width": "100%", "height": 400, "gridLineColor": "#2a2e39", "fontColor": "#787b86", "underLineColor": "rgba(255, 183, 0, 0.3)", "isTransparent": false, "autosize": true, "showFloatingTooltip": true, "scalePosition": "no", "scaleMode": "Normal", "fontFamily": "Trebuchet MS, sans-serif", "noTimeScale": false, "chartType": "area", "lineColor": "#ffb700", "bottomColor": "rgba(255, 183, 0, 0)", "topColor": "rgba(255, 183, 0, 0.3)", "colorTheme": "dark"
+  });
+</script>
 </body>
 </html>
