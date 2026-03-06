@@ -2,60 +2,33 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Altın Arbitraj Takip</title>
+    <title>Canlı Altın Arbitraj Takip</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background: #0d1117; color: white; margin: 0; display: flex; flex-direction: column; height: 100vh; }
-        #header { background: #161b22; padding: 15px; text-align: center; border-bottom: 2px solid #30363d; }
-        .diff-container { font-size: 24px; font-weight: bold; color: #58a6ff; margin-top: 5px; }
-        #chart-area { flex-grow: 1; }
-        .label { font-size: 14px; color: #8b949e; }
+        body { font-family: sans-serif; background: #0d1117; color: white; text-align: center; padding: 20px; }
+        .table-container { 
+            background: white; 
+            border-radius: 10px; 
+            overflow: hidden; 
+            display: inline-block;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+        iframe { width: 600px; height: 300px; border: none; }
+        .info { margin-top: 20px; color: #8b949e; font-size: 14px; }
     </style>
 </head>
 <body>
 
-<div id="header">
-    <span class="label">ALTIN.S1 vs GRAM (REAL)</span>
-    <div id="diff-display" class="diff-container">Veriler Yükleniyor...</div>
-    <span style="font-size: 11px; color: #8b949e;">(Not: % fark pozitifse borsa pahalı, negatifse borsa ucuzdur.)</span>
-</div>
+    <h2>Google Finance Canlı Veri Paneli</h2>
+    
+    <div class="table-container">
+        <iframe src="BURAYA_KENDI_LINKINI_YAPISTIR"></iframe>
+    </div>
 
-<div id="chart-area">
-    <div id="tv_chart_container" style="height: 100%;"></div>
-</div>
-
-<script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-<script type="text/javascript">
-    // Widget Ayarları
-    new TradingView.widget({
-        "autosize": true,
-        "symbol": "BIST:ALTIN.S1",
-        "interval": "60",
-        "timezone": "Europe/Istanbul",
-        "theme": "dark",
-        "style": "1",
-        "locale": "tr",
-        "container_id": "tv_chart_container",
-        "allow_symbol_change": true,
-        "studies": [
-            {
-                "id": "Overlay@tv-basicstudies",
-                "inputs": {
-                    "symbol": "FX_IDC:TRYGOLD"
-                }
-            }
-        ]
-    });
-
-    // Sembol Hatasını Önlemek ve Farkı Hesaplamak İçin Ekran Takibi
-    // Not: TradingView widget içinden ham fiyatı çekmek güvenlik gereği zordur.
-    // Ancak aşağıdaki manuel takip mantığıyla farkı her zaman görebilirsin.
-    function updateDiff() {
-        const display = document.getElementById('diff-display');
-        display.innerHTML = "Grafik Üzerinden 'Kıyasla' Yapınız";
-    }
-    updateDiff();
-</script>
+    <div class="info">
+        <p>Borsa Altın (S1) x 100 hesabı ile Gerçek Gram Altın kıyaslanmaktadır.</p>
+        <p>Fark pozitifse Borsa pahalıdır.</p>
+    </div>
 
 </body>
 </html>
